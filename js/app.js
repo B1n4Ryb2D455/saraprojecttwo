@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+let cards = ['albert', 'albert', 'stephen', 'stephen', 'isaac', 'isaac', 'marie', 'marie', 'neils', 'neils', 'richard', 'richard', 'max', 'max', 'erwin', 'erwin' ]
 
 /*
  * Display the cards on the page
