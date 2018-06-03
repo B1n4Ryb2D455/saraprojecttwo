@@ -31,11 +31,13 @@ function shuffle(array) {
 // pass in card, turn into string from FEND tutorial https://youtu.be/_rUH-sEs68Y
 function initGame() {
     var deck = document.querySelector('.deck');
-    var cardHTML = shuffle(cards).map(function (card) {
+    var cardHTML = shuffle(cards).map(function(card) {
         return generateCard(card);
     });
-
     deck.innerHTML = cardHTML.join('');
+}
+
+initGame();
 
     var allCards = document.querySelectorAll('.card');
     var openCards = [];
@@ -44,10 +46,7 @@ function initGame() {
     allCards.forEach(function (card) {
         card.addEventListener('click', function (e) {
 
-            if (!card.classList.contains('open') &&
-                !card.classList.contains('show') &&
-                !card.classList.contains('match')
-            ) {
+            if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
                 openCards.push(card);
                 card.classList.add('open', 'show');
 
@@ -95,10 +94,10 @@ function initGame() {
     startTimer();
 
     document.querySelector('.restart').addEventListener('click', resetTimer);
-}
+//}
 
 // build modal
-// from https: //www.w3schools.com/howto/howto_css_modals.asp
+// from https://www.w3schools.com/howto/howto_css_modals.asp
 
 // Get the modal
 var modal = document.getElementById('myModal');
