@@ -125,3 +125,12 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
+// move counter
+const moves = 0;
+const counter = document.querySelector('.moves');
+
+function countMoves() {
+    moves++;
+    counter.innerHTML = moves;
+}
