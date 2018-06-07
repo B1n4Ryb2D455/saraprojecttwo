@@ -33,7 +33,7 @@ function initGame() {
     var deck = document.querySelector('.deck');
     var moveCounter = document.querySelector('.moves');
 
-    var cardHTML = shuffle(cards).map(function(card) {
+    var cardHTML = shuffle(cards).map(function (card) {
         return generateCard(card);
     });
     moves = 0;
@@ -43,113 +43,118 @@ function initGame() {
 }
 initGame();
 
-// timer and stars remover
-    var moves = 0;
-    var moveCounter = document.querySelector('.moves');
-    var stars = document.querySelectorAll('.stars');
+// keep matching cards open from FEND tutorial <insert link>
+var allCards = document.querySelectorAll('.card');
+var openCards = [];
+var moves = 0;
 
-function removeStars() {
-    moves += 1;
+allCards.forEach(function (card) {
+    card.addEventListener('click', function (e) {
+
+        if (!card.classList.contains('open') && !card.classList.contains('show')) {
+            openCards.push(card);
+            card.classList.add('open', 'show');
+
+            if (openCards.length == 2) {
+                //If cards match, leave facing up
+                if (openCards[0].dataset.card == openCards[1].dataset.card) {
+                    openCards[0].classList.add('match');
+                    openCards[0].classList.add('open');
+                    openCards[0].classList.add('show');
+
+                    openCards[1].classList.add('match');
+                    openCards[1].classList.add('open');
+                    openCards[1].classList.add('show');
+
+                    openCards = [];
+                } else {
+                    //If cards do not match, flip cards back over
+                    setTimeout(function () {
+                        openCards.forEach(function (card) {
+                            card.classList.remove('open', 'show');
+                        });
+
+                        openCards = [];
+                    }, 1000);
+                }
+
+                moves += 1;
+                moveCounter.innerText = moves;
+            }
+        }
+    });
+});
+// Timer that resets with restart button
+var timer = document.querySelector('.timer');
+var timing;
+var second = 0;
+
+function startTimer() {
+    timing = window.setInterval(function () {
+        timer.innerHTML = second + " secs"
+        second++;
+    }, 1000);
+}
+
+function resetTimer() {
+    clearInterval(interval);
+}
+startTimer();
+
+document.querySelector('.restart').addEventListener('click', resetTimer);
+//}
+
+// move counter
+var moveCounter = document.querySelector('.moves');
+var moves = 0;
+moveCounter.innerHTML = 0;
+function addMove() {
+    moves++;
     moveCounter.innerHTML = moves;
 
-    if (moves > 8 && moves <= 13) {
-        var removeOne = document.querySelector('.starOne');
-        removeOne.style.display='none';
-        }
-        else if (moves >= 14) {
-        var removeTwo = document.querySelector('.starTwo');
-        removeTwo.style.display='none';
-        }
+    rate();
 }
 
 
-// keep matching cards open from FEND tutorial <insert link>
-    var allCards = document.querySelectorAll('.card');
-    var openCards = [];
-    var moves = 0;
-
-    allCards.forEach(function(card) {
-        card.addEventListener('click', function (e) {
-
-            if (!card.classList.contains('open') && !card.classList.contains('show')) {
-                openCards.push(card);
-                card.classList.add('open', 'show');
-
-                if (openCards.length == 2) {
-                    //If cards match, leave facing up
-                    if (openCards[0].dataset.card == openCards[1].dataset.card) {
-                        openCards[0].classList.add('match');
-                        openCards[0].classList.add('open');
-                        openCards[0].classList.add('show');
-
-                        openCards[1].classList.add('match');
-                        openCards[1].classList.add('open');
-                        openCards[1].classList.add('show');
-
-                        openCards = [];
-                    } else {
-                        //If cards do not match, flip cards back over
-                        setTimeout(function () {
-                            openCards.forEach(function (card) {
-                                card.classList.remove('open', 'show');
-                            });
-
-                            openCards = [];
-                        }, 1000);
-                    }
-
-                    moves += 1;
-                    moveCounter.innerText = moves;
-                }
-            }
-        });
-    });
-    // Timer that resets with restart button
-    var timer = document.querySelector('.timer');
-    var timing;
-    var second = 0;
-
-    function startTimer() {
-        timing = window.setInterval(function () {
-            timer.innerHTML = second + " secs"
-            second++;
-        }, 1000);
+// stars remover
+var stars = document.querySelector('.stars');
+function rate() {
+    if(moves > 2) {
+        stars.innerHTML = `<li>
+                    <i class="fa fa-star"></i>
+                </li>
+                <li class=>
+                    <i class="fa fa-star"></i>
+                </li>`
     }
+}
 
-    function resetTimer() {
-        clearInterval(interval);
-    }
-    startTimer();
-
-    document.querySelector('.restart').addEventListener('click', resetTimer);
-//}
 
 //build modal
 //from https://www.w3schools.com/howto/howto_css_modals.asp
 
 //Get the modal
-var modal = document.getElementById('myModal');
+// var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+// // Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
-    modal.style.display = "block";
-}
+// // When the user clicks on the button, open the modal
+// btn.onclick = function () {
+//     modal.style.display = "block";
+// }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function () {
+//     modal.style.display = "none";
+// }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function (event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
