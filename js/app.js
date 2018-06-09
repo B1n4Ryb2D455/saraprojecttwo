@@ -43,6 +43,9 @@ function initGame() {
 }
 initGame();
 
+// starting the game
+//window.onload = initGame();
+
 // keep matching cards open from FEND tutorial <insert link>
 var allCards = document.querySelectorAll('.card');
 var openCards = [];
@@ -104,64 +107,57 @@ startTimer();
 document.querySelector('.restart').addEventListener('click', resetTimer);
 //}
 
-// move counter
+// move counter and rating
 var moveCounter = document.querySelector('.moves');
 var moves = 0;
+//var stars = document.querySelector('.stars');
 moveCounter.innerHTML = 0;
 
 function addMove() {
     moves++;
     moveCounter.innerHTML = moves;
 
-    rate();
-}
-
-
-// stars remover
-var stars = document.querySelector('.stars');
-
-function rate() {
-    if (moves > 2) {
-        stars.innerHTML = `<li>
-                    <i class="fa fa-star"></i>
-                </li>
-                <li class=>
-                    <i class="fa fa-star"></i>
-                </li>`
+    if (moves > 1 && moves < 12) {
+        var parent = document.getElementById("myList");
+        var child = document.getElementById("sO");
+        parent.removeChild(child);
+    } else if (moves > 13) {
+        var parent = document.getElementById("myList");
+        var child = document.getElementById("sT");
+        parent.removeChild(child);
     }
 }
-
-
 //build modal
 //from https://www.w3schools.com/howto/howto_css_modals.asp
-
+var modal = document.querySelector('.modal');
+var win = document.querySelectorAll('.card', '.open', '.show', '.match');
 //game over open modal
 function gameOver() {
-    var modal = document.querySelector('.modal');
-    var win = document.querySelectorAll('.card', '.open', '.show', '.match');
-    if (win.length == 16) {
-        modal.style.display = "block";
-    }
 
-    console.log('this works!');
+    if (win.length == 1) {
+        //// clearInterval(timing);
+        //finalTime = timer.innerHTML;
+        modal.style.display = "block";
+        //modal.classList.add("show");
+    }
+    // else if (win.length x >= 0 && x <= 15) {
+    //     modal.style.display = "none";
+    // }
 };
+//gameOver();
+
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
-    modal.style.display = "block";
-}
+//var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
+//span.onclick = function () {
+//modal.style.display = "none";
+//}
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+// window.onclick = function (event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
