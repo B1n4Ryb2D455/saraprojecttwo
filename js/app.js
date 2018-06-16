@@ -1,4 +1,4 @@
-var cards = ['fa-code-fork', 'fa-code-fork',
+let cards = ['fa-code-fork', 'fa-code-fork',
     'fa-cogs', 'fa-cogs',
     'fa-user-secret', 'fa-user-secret',
     'fa-terminal', 'fa-terminal',
@@ -14,7 +14,7 @@ function generateCard(card) {
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length,
+    let currentIndex = array.length,
         temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
@@ -29,15 +29,15 @@ function shuffle(array) {
 
 // pass in card, turn into string from FEND tutorial https://youtu.be/_rUH-sEs68Y
 function initGame() {
-    var deck = document.querySelector('.deck');
-    var cardHTML = shuffle(cards).map(function (card) {
+    let deck = document.querySelector('.deck');
+    let cardHTML = shuffle(cards).map(function (card) {
         return generateCard(card);
     });
 
     deck.innerHTML = cardHTML.join('');
 
-    var allCards = document.querySelectorAll('.card');
-    var openCards = [];
+    let allCards = document.querySelectorAll('.card');
+    let openCards = [];
 
 
     allCards.forEach(function (card) {
@@ -78,9 +78,9 @@ function initGame() {
     });
 
     // Timer that resets with restart button
-    var timer = document.querySelector('.timer');
-    var timing;
-    var second = 0;
+    let timer = document.querySelector('.timer');
+    let timing;
+    let second = 0;
 
     function startTimer() {
         timing = window.setInterval(function () {
@@ -98,11 +98,11 @@ function initGame() {
 }
 
 // Move counter
-var moves = 0;
-var moveCounter = document.querySelector('.moves');
-var starOne = document.querySelector('#sO');
-var starTwo = document.querySelector('#sT');
-//var stars = document.querySelector('.stars');
+let moves = 0;
+let moveCounter = document.querySelector('.moves');
+let starOne = document.querySelector('#sO');
+let starTwo = document.querySelector('#sT');
+//let stars = document.querySelector('.stars');
 
 function moveCount() {
     moves++;
@@ -120,5 +120,31 @@ function moveCount() {
 
 initGame();
 
+// modal from https://www.w3schools.com/howto/howto_css_modals.asp
 
+// Get the modal
+let modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+let btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function () {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
