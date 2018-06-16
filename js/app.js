@@ -5,7 +5,8 @@ let cards = ['fa-code-fork', 'fa-code-fork',
     'fa-space-shuttle', 'fa-space-shuttle',
     'fa-sitemap', 'fa-sitemap',
     'fa-i-cursor', 'fa-i-cursor',
-    'fa-gamepad', 'fa-gamepad'];
+    'fa-gamepad', 'fa-gamepad'
+];
 
 // Returns card HTML function from https://youtu.be/_rUH-sEs68Y
 function generateCard(card) {
@@ -70,8 +71,10 @@ function initGame() {
                                 card.classList.remove('open', 'show');
                             });
                             openCards = [];
-                        }, 1000);
+                        }, 500);
                     }
+
+
                 }
             }
         });
@@ -102,20 +105,22 @@ let moves = 0;
 let moveCounter = document.querySelector('.moves');
 let starOne = document.querySelector('#sO');
 let starTwo = document.querySelector('#sT');
-//let stars = document.querySelector('.stars');
+let starLast = document.querySelector('#sL');
+//let starDisplay = 3;
 
 function moveCount() {
     moves++;
     moveCounter.innerHTML = moves;
     //Begin removing stars based on move count
     if (moves > 8 && moves <= 12) {
-        starOne.style.display = 'none';
-        //stars.removeChild(stars.childNodes[1]);
-    } else if (moves > 13) {
-        starTwo.style.display = 'none';
-        //stars.removeChild(stars.childNodes[2]);
-    }
+        starOne.parentNode.removeChild(starOne);
 
+    } else if (moves > 13 && moves <= 18) {
+        starTwo.parentNode.removeChild(starTwo);
+
+    } else if (moves > 19) {
+        starLast.parentElement.removeChild(starLast);
+    }
 }
 
 initGame();
@@ -123,18 +128,32 @@ initGame();
 // modal from https://www.w3schools.com/howto/howto_css_modals.asp
 
 // Get the modal
-let modal = document.getElementById('myModal');
+
 
 // Get the button that opens the modal
-let btn = document.getElementById("myBtn");
+//let btn = document.getElementById("myBtn");
+
+// open the modal when match length is 16
+let modal = document.getElementById('myModal');
+let matchNodes = document.querySelectorAll('.match');
+
+function openModal() {
+    if (matchNodes.length <= 15) {
+        modal.style.display = 'none';
+    } else if (matchNodes.length === 16) {
+        modal.style.display = 'block';
+    }
+}
+openModal ();
+
 
 // Get the <span> element that closes the modal
 let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function () {
-    modal.style.display = "block";
-}
+// btn.onclick = function () {
+//     modal.style.display = "block";
+// }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
@@ -147,4 +166,3 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-
