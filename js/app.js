@@ -77,6 +77,7 @@ function initGame() {
             if (matching === 16) {
               matchedCards = 1;
               modal.style.display = 'block';
+
             }
             //console.log(openCards);
             openCards = [];
@@ -98,12 +99,21 @@ function initGame() {
   // Timer that resets with restart button
   let timer = document.querySelector(".timer");
   let timing;
+  let minute = 0;
   let second = 0;
 
   function startTimer() {
     timing = window.setInterval(function () {
-      timer.innerHTML = second + " secs";
+      timer.innerHTML = minute + " mins " + second + " secs ";
       second++;
+      if (second == 60) {
+        minute++;
+        second = 0;
+      }
+      if (minute == 60) {
+        hour++;
+        minute = 0;
+      }
     }, 1000);
   }
 
@@ -118,7 +128,6 @@ let moves = 0;
 let moveCounter = document.querySelector(".moves");
 let starOne = document.querySelector("#sO");
 let starTwo = document.querySelector("#sT");
-//let starLast = document.querySelector("#sL");
 let starCount = 3;
 
 function moveCount() {
@@ -142,15 +151,10 @@ function moveCount() {
 initGame();
 /// Get the modal
 var modal = document.getElementById('myModal');
-// var youWin = document.querySelector('.content');
-// youWin.innerHTML = `Congrats! Your score is ${starCount} and it took you ${moves} moves`;
-//modal.style.display = 'block';
-// Get the button that opens the modal
-//var btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
+
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on <span> (x), close the modal
+//When the user clicks on <span>, close the modal
 span.onclick = function () {
   modal.style.display = "none";
 }
