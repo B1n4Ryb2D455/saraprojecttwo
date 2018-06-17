@@ -1,20 +1,20 @@
 let cards = [
-  "fa-code-fork",
-  "fa-code-fork",
-  "fa-cogs",
-  "fa-cogs",
-  "fa-user-secret",
-  "fa-user-secret",
-  "fa-terminal",
-  "fa-terminal",
-  "fa-space-shuttle",
-  "fa-space-shuttle",
-  "fa-sitemap",
-  "fa-sitemap",
-  "fa-i-cursor",
-  "fa-i-cursor",
-  "fa-gamepad",
-  "fa-gamepad"
+  "fa-google-plus",
+  "fa-google-plus",
+  "fa-google-wallet",
+  "fa-google-wallet",
+  "fa-stack-overflow",
+  "fa-stack-overflow",
+  "fa-google",
+  "fa-google",
+  "fa-medium",
+  "fa-medium",
+  "fa-slack",
+  "fa-slack",
+  "fa-instagram",
+  "fa-instagram",
+  "fa-twitter",
+  "fa-twitter"
 ];
 
 // Returns card HTML function from https://youtu.be/_rUH-sEs68Y
