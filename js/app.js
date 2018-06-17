@@ -152,9 +152,18 @@ initGame();
 /// Get the modal
 var modal = document.getElementById('myModal');
 
-var span = document.getElementsByClassName("close")[0];
+// var span = document.getElementsByClassName("close")[0];
+var replay = document.querySelector('.close');
+// Get the button that opens the modal
+var btn = document.querySelector('#playAgain');
 
 //When the user clicks on <span>, close the modal
-span.onclick = function () {
-  modal.style.display = "none";
+btn.onclick = function () {
+  window.location.reload();
+ // console.log("I clicked the button");
+}
+
+replay.onclick = function () {
+   window.location.reload();
+  //modal.style.display = "none";
 }
