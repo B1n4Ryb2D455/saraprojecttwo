@@ -71,17 +71,14 @@ function initGame() {
             openCards[1].classList.add("match");
             openCards[1].classList.add("open");
             openCards[1].classList.add("show");
-            //console.log(openCards);
+            // make a variable for card matches
             let matching = document.querySelectorAll('.match').length;
-            //console.log(matching);
+            // open the modal if all cards match
             if (matching === 16) {
               matchedCards = 1;
               modal.style.display = 'block';
-
             }
-            //console.log(openCards);
             openCards = [];
-
           } else {
             //If cards do not match, flip cards back over
             setTimeout(function () {
@@ -96,7 +93,7 @@ function initGame() {
     });
   });
 
-  // Timer that resets with restart button
+  // Timer
   let timer = document.querySelector(".timer");
   let timing;
   let minute = 0;
@@ -124,6 +121,7 @@ function initGame() {
   document.querySelector(".restart").addEventListener("click", resetTimer);
 }
 
+// move counter and star rating
 let moves = 0;
 let moveCounter = document.querySelector(".moves");
 let starOne = document.querySelector("#sO");
@@ -134,6 +132,7 @@ function moveCount() {
   moves++;
   moveCounter.innerHTML = moves;
   console.log(moves);
+  // remove stars as the move count goes higher
   if (moves > 8 && moves <= 12) {
     starOne.style.display = 'none';
     starCount = 2;
@@ -143,27 +142,24 @@ function moveCount() {
     starCount = 1;
     console.log(starCount);
   }
+  // display the stats in the modal
   var youWin = document.querySelector('.content');
   youWin.innerHTML = `Congrats, you da bomb diggity! Your score is ${starCount} and it took you ${moves} moves to finish... wanna play again?`;
 }
 
-// let match = [...document.querySelectorAll('.match')];
 initGame();
 /// Get the modal
 var modal = document.getElementById('myModal');
-
-// var span = document.getElementsByClassName("close")[0];
+// let player restart the game without winning
 var replay = document.querySelector('.close');
-// Get the button that opens the modal
-var btn = document.querySelector('#playAgain');
-
-//When the user clicks on <span>, close the modal
-btn.onclick = function () {
+replay.onclick = function () {
+  // I don't see a point in writing more code if we can just use this
   window.location.reload();
- // console.log("I clicked the button");
 }
 
-replay.onclick = function () {
-   window.location.reload();
-  //modal.style.display = "none";
+// let the player restart from the modal
+var btn = document.querySelector('#playAgain');
+btn.onclick = function () {
+  // I don't see a point in writing more code if we can just use this
+  window.location.reload();
 }
