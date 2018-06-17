@@ -40,6 +40,12 @@ h1 {
     display: none;
 }
 
+#playAgain {
+        background: bottom;
+        border: none;
+        display: contents;
+        text-transform: uppercase;
+}
 /*
  * Styles for the deck of cards
  */
