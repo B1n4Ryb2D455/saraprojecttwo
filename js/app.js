@@ -72,17 +72,13 @@ function initGame() {
             openCards[1].classList.add("match");
             openCards[1].classList.add("open");
             openCards[1].classList.add("show");
-            console.log(openCards);
+            //console.log(openCards);
            let matching = document.querySelectorAll('.match').length;
-            console.log(matching);
+            //console.log(matching);
               if (matching === 16) {
               matchedCards = 1;
               modal.style.display = 'block';
             }
-            // if (matching === 4) {
-            //   matchedCards = 2;
-            // }
-            console.log(matchedCards);
             openCards = [];
 
           } else {
@@ -124,6 +120,7 @@ let moveCounter = document.querySelector(".moves");
 let starOne = document.querySelector("#sO");
 let starTwo = document.querySelector("#sT");
 let starLast = document.querySelector("#sL");
+let starCount = 3;
 
 function moveCount() {
   moves++;
@@ -131,10 +128,16 @@ function moveCount() {
   // fix the counts back after testing
   if (moves > 2 && moves <= 3) {
     starOne.parentNode.removeChild(starOne);
+    starCount = 2;
+    console.log(starCount);
   } else if (moves > 4 && moves <= 5) {
     starTwo.parentNode.removeChild(starTwo);
-  } else if (moves > 50) {
+    starCount = 1;
+    console.log(starCount);
+  } else if (moves > 8) {
     starLast.parentNode.removeChild(starLast);
+    starCount = 0;
+    console.log(starCount);
   }
 }
 
