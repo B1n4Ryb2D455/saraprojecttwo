@@ -119,7 +119,7 @@ let moves = 0;
 let moveCounter = document.querySelector(".moves");
 let starOne = document.querySelector("#sO");
 let starTwo = document.querySelector("#sT");
-let starLast = document.querySelector("#sL");
+//let starLast = document.querySelector("#sL");
 let starCount = 3;
 
 function moveCount() {
@@ -135,46 +135,18 @@ function moveCount() {
     starCount = 1;
     console.log(starCount);
   }
+var youWin = document.querySelector('.content');
+youWin.innerHTML = `Congrats! Your score is ${starCount} and it took you ${moves} moves`;
 }
 
-//moveCount();
-
-// let starOne = document.querySelector("#sO");
-// let starTwo = document.querySelector("#sT");
-// let starLast = document.querySelector("#sL");
-// let starCount = 3;
-//var currentMoves = moveCount();
-
-// function removeStars () {
-//   if (currentMoves === 2){
-//      console.log("good idea");
-//   };
-
-// }
-
-// if (moves > 8 && moves <= 12) {
-//   starOne.parentNode.removeChild(starOne);
-//   starCount = 2;
-//   //console.log(starCount);
-// } else if (moves > 13 && moves <= 19) {
-//   starTwo.parentNode.removeChild(starTwo);
-//   starCount = 1;
-//   //console.log(starCount);
-// } else if (moves > 20) {
-//   starLast.parentNode.removeChild(starLast);
-//   starCount = 0;
-//   //console.log(starCount);
-// }
-
 // let match = [...document.querySelectorAll('.match')];
-// let length = match.length;
-//let length = 0;
-
 
 initGame();
 
 /// Get the modal
 var modal = document.getElementById('myModal');
+// var youWin = document.querySelector('.content');
+// youWin.innerHTML = `Congrats! Your score is ${starCount} and it took you ${moves} moves`;
 
 //modal.style.display = 'block';
 // Get the button that opens the modal
