@@ -1,20 +1,16 @@
 # Memory Game Project
 
-## Table of Contents
+A memory game built as project number two for the Grow with Google Udacity Front End Web developer challenge.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+Built with JavaScript, CSS, and HTML - the game is responsive to work with different devices and it's FUN!
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Instructions:
+Click on any card to turn it over
+Click a second card and see if it's a match
+If the cards don't match, they will return to a face-down position
+Continue clicking cards until you match all the cards
+To restart the game at any time, click the "restart" icon and the board will reset
+You will be graded with a star rating from 1-3 stars as you play
+Your time playing will be displayed throughout the game
+If you win, a congratulations pop-up will display with your stats
+If you wish to play again after winning, click the "baby hit me one more time" button (who doesn't love Brittany?!)
