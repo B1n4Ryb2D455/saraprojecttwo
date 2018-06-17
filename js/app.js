@@ -49,6 +49,7 @@ function initGame() {
 
   let allCards = document.querySelectorAll(".card");
   let openCards = [];
+  let matchedCards = 0;
 
   allCards.forEach(function(card) {
     card.addEventListener("click", function(e) {
@@ -71,8 +72,15 @@ function initGame() {
             openCards[1].classList.add("match");
             openCards[1].classList.add("open");
             openCards[1].classList.add("show");
-
+            console.log(openCards);
+           let matching = document.querySelectorAll('.match').length;
+            console.log(matching);
+            if (matching === 2) {
+              matchedCards = 1;
+            }
+            console.log(matchedCards);
             openCards = [];
+
           } else {
             //If cards do not match, flip cards back over
             setTimeout(function() {
