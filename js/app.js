@@ -118,31 +118,53 @@ function initGame() {
 let moves = 0;
 let moveCounter = document.querySelector(".moves");
 let starOne = document.querySelector("#sO");
+let starTwo = document.querySelector("#sT");
+let starLast = document.querySelector("#sL");
+let starCount = 3;
 
 function moveCount() {
   moves++;
   moveCounter.innerHTML = moves;
   console.log(moves);
+  if (moves > 8 && moves <= 12) {
+    starOne.style.display = 'none';
+    starCount = 2;
+    console.log(starCount);
+  } else if (moves > 13) {
+    starTwo.style.display = 'none';
+    starCount = 1;
+    console.log(starCount);
+  }
 }
 
-let starTwo = document.querySelector("#sT");
-let starLast = document.querySelector("#sL");
-let starCount = 3;
-//fix the counts back after testing
+//moveCount();
 
-  // if (moves > 8 && moves <= 12) {
-  //   starOne.parentNode.removeChild(starOne);
-  //   starCount = 2;
-  //   //console.log(starCount);
-  // } else if (moves > 13 && moves <= 19) {
-  //   starTwo.parentNode.removeChild(starTwo);
-  //   starCount = 1;
-  //   //console.log(starCount);
-  // } else if (moves > 20) {
-  //   starLast.parentNode.removeChild(starLast);
-  //   starCount = 0;
-  //   //console.log(starCount);
-  // }
+// let starOne = document.querySelector("#sO");
+// let starTwo = document.querySelector("#sT");
+// let starLast = document.querySelector("#sL");
+// let starCount = 3;
+//var currentMoves = moveCount();
+
+// function removeStars () {
+//   if (currentMoves === 2){
+//      console.log("good idea");
+//   };
+
+// }
+
+// if (moves > 8 && moves <= 12) {
+//   starOne.parentNode.removeChild(starOne);
+//   starCount = 2;
+//   //console.log(starCount);
+// } else if (moves > 13 && moves <= 19) {
+//   starTwo.parentNode.removeChild(starTwo);
+//   starCount = 1;
+//   //console.log(starCount);
+// } else if (moves > 20) {
+//   starLast.parentNode.removeChild(starLast);
+//   starCount = 0;
+//   //console.log(starCount);
+// }
 
 // let match = [...document.querySelectorAll('.match')];
 // let length = match.length;
