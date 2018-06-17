@@ -75,9 +75,13 @@ function initGame() {
             console.log(openCards);
            let matching = document.querySelectorAll('.match').length;
             console.log(matching);
-            if (matching === 2) {
+              if (matching === 16) {
               matchedCards = 1;
+              modal.style.display = 'block';
             }
+            // if (matching === 4) {
+            //   matchedCards = 2;
+            // }
             console.log(matchedCards);
             openCards = [];
 
@@ -145,6 +149,7 @@ initGame();
 /// Get the modal
 var modal = document.getElementById('myModal');
 
+  //modal.style.display = 'block';
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
