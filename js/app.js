@@ -77,6 +77,7 @@ function initGame() {
             if (matching === 16) {
               matchedCards = 1;
               modal.style.display = 'block';
+              clearTimeout(timing);
             }
             openCards = [];
           } else {
@@ -102,6 +103,8 @@ function initGame() {
   function startTimer() {
     timing = window.setInterval(function () {
       timer.innerHTML = minute + " mins " + second + " secs ";
+      let timeTook = document.querySelector('.timer').innerText;
+      //console.log(timeTook);
       second++;
       if (second == 60) {
         minute++;
@@ -111,11 +114,14 @@ function initGame() {
         hour++;
         minute = 0;
       }
+      var youWin = document.querySelector('.content');
+      youWin.innerHTML = `Congrats, you da bomb diggity! Your score is ${starCount}, it took you ${timeTook} to finish, and you made ${moves} moves... wanna play again?`;
+      console.log(timeTook);
     }, 1000);
   }
 
   function resetTimer() {
-    clearInterval(interval);
+    clearInterval(timing);
   }
   startTimer();
   document.querySelector(".restart").addEventListener("click", resetTimer);
@@ -142,9 +148,6 @@ function moveCount() {
     starCount = 1;
     console.log(starCount);
   }
-  // display the stats in the modal
-  var youWin = document.querySelector('.content');
-  youWin.innerHTML = `Congrats, you da bomb diggity! Your score is ${starCount} and it took you ${moves} moves to finish... wanna play again?`;
 }
 
 initGame();
