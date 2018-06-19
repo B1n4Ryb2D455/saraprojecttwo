@@ -156,13 +156,13 @@ var modal = document.getElementById('myModal');
 // let player restart the game without winning
 var replay = document.querySelector('.close');
 replay.onclick = function () {
-  // I don't see a point in writing more code if we can just use this
+  // will fix moving forward as I now know this isn't how we should handle resetting the game
   window.location.reload();
 }
 
 // let the player restart from the modal
 var btn = document.querySelector('#playAgain');
 btn.onclick = function () {
-  // I don't see a point in writing more code if we can just use this
+  // will fix moving forward, as I now know this isn't how we should handle resetting the game
   window.location.reload();
 }
